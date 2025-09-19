@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RadioButton
@@ -146,10 +147,13 @@ class MMSETestActivity : AppCompatActivity() {
     }
 
     private fun checkAudioPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
+        val hasPermission = ContextCompat.checkSelfPermission(
             this,
             Manifest.permission.RECORD_AUDIO
         ) == PackageManager.PERMISSION_GRANTED
+
+        Log.d("MMSETestActivity", "Audio permission granted: $hasPermission")
+        return hasPermission
     }
 
     private fun requestAudioPermission() {
