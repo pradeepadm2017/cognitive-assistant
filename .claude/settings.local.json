@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew:*)",
+      "Bash(chmod:*)",
+      "Bash(adb:*)",
+      "Bash(wget:*)",
+      "Read(//home/subha/**)",
+      "Bash(sudo apt:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(python3:*)",
+      "Bash(zip:*)",
+      "Bash(tar:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

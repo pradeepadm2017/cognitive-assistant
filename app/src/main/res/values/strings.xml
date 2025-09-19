@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Cognitive Assistant</string>
+    <string name="login_title">Cognitive Assessment Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="doctor">Doctor</string>
+    <string name="patient">Patient</string>
+    <string name="select_role">Select Role</string>
+    <string name="patient_profile">Patient Profile</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="age">Age</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="patient_id">Patient ID</string>
+    <string name="next">Next</string>
+    <string name="cognitive_tests">Cognitive Tests</string>
+    <string name="mmse_title">MMSE</string>
+    <string name="mmse_description">The Mini-Mental State Examination</string>
+    <string name="moca_title">MoCA</string>
+    <string name="moca_description">Montreal Cognitive Assessment</string>
+    <string name="rorschach_title">Rorschach Test</string>
+    <string name="rorschach_description">Rorschach Inkblot Test</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="please_fill_all_fields">Please fill all fields</string>
+</resources>
