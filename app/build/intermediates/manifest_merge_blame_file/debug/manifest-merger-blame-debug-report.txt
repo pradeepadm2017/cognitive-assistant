@@ -1,0 +1,130 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.cognitiveassistant"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+11-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:5:5-71
+11-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:5:22-68
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:6:5-67
+12-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:6:22-64
+13
+14    <permission
+14-->[androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+15        android:name="com.cognitiveassistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+15-->[androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+16        android:protectionLevel="signature" />
+16-->[androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+17
+18    <uses-permission android:name="com.cognitiveassistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+18-->[androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+19
+20    <application
+20-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:8:5-45:19
+21        android:allowBackup="true"
+21-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:9:9-35
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+23        android:dataExtractionRules="@xml/data_extraction_rules"
+23-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:10:9-65
+24        android:debuggable="true"
+25        android:extractNativeLibs="false"
+26        android:fullBackupContent="@xml/backup_rules"
+26-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:11:9-54
+27        android:icon="@mipmap/ic_launcher"
+27-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:12:9-43
+28        android:label="@string/app_name"
+28-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:13:9-41
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:14:9-54
+30        android:supportsRtl="true"
+30-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:15:9-35
+31        android:theme="@style/Theme.CognitiveAssistant" >
+31-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:16:9-56
+32        <activity
+32-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:18:9-28:20
+33            android:name="com.cognitiveassistant.MainActivity"
+33-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:19:13-41
+34            android:exported="true"
+34-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:20:13-36
+35            android:label="@string/app_name"
+35-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:21:13-45
+36            android:theme="@style/Theme.CognitiveAssistant" >
+36-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:22:13-60
+37            <intent-filter>
+37-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:23:13-27:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:24:17-69
+38-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:24:25-66
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:26:17-77
+40-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:26:27-74
+41            </intent-filter>
+42        </activity>
+43        <activity
+43-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:29:9-32:63
+44            android:name="com.cognitiveassistant.PatientProfileActivity"
+44-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:30:13-51
+45            android:exported="false"
+45-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:31:13-37
+46            android:theme="@style/Theme.CognitiveAssistant" />
+46-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:32:13-60
+47        <activity
+47-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:33:9-36:63
+48            android:name="com.cognitiveassistant.TestSelectionActivity"
+48-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:34:13-50
+49            android:exported="false"
+49-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:35:13-37
+50            android:theme="@style/Theme.CognitiveAssistant" />
+50-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:36:13-60
+51        <activity
+51-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:37:9-40:63
+52            android:name="com.cognitiveassistant.MMSETestActivity"
+52-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:38:13-45
+53            android:exported="false"
+53-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:39:13-37
+54            android:theme="@style/Theme.CognitiveAssistant" />
+54-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:40:13-60
+55        <activity
+55-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:41:9-44:63
+56            android:name="com.cognitiveassistant.TestResultsActivity"
+56-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:42:13-48
+57            android:exported="false"
+57-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:43:13-37
+58            android:theme="@style/Theme.CognitiveAssistant" />
+58-->/home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:44:13-60
+59
+60        <provider
+60-->[androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+61            android:name="androidx.startup.InitializationProvider"
+61-->[androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+62            android:authorities="com.cognitiveassistant.androidx-startup"
+62-->[androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+63            android:exported="false" >
+63-->[androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+64            <meta-data
+64-->[androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+65-->[androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+66                android:value="androidx.startup" />
+66-->[androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+68                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+68-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+69                android:value="androidx.startup" />
+69-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+70        </provider>
+71    </application>
+72
+73</manifest>

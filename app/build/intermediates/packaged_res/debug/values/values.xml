@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="age">Age</string>
+    <string name="app_name">Cognitive Assistant</string>
+    <string name="cognitive_tests">Cognitive Tests</string>
+    <string name="doctor">Doctor</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="login">Login</string>
+    <string name="login_title">Cognitive Assessment Login</string>
+    <string name="mmse_description">The Mini-Mental State Examination</string>
+    <string name="mmse_title">MMSE</string>
+    <string name="moca_description">Montreal Cognitive Assessment</string>
+    <string name="moca_title">MoCA</string>
+    <string name="next">Next</string>
+    <string name="password">Password</string>
+    <string name="patient">Patient</string>
+    <string name="patient_id">Patient ID</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="patient_profile">Patient Profile</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="please_fill_all_fields">Please fill all fields</string>
+    <string name="rorschach_description">Rorschach Inkblot Test</string>
+    <string name="rorschach_title">Rorschach Test</string>
+    <string name="select_role">Select Role</string>
+    <string name="username">Username</string>
+    <style name="Theme.CognitiveAssistant" parent="Theme.Material3.DayNight.NoActionBar"/>
+</resources>

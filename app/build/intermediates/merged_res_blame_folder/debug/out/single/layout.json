@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-mergeDebugResources-28:/layout/activity_main.xml",
+        "source": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.cognitiveassistant.app-mergeDebugResources-28:/layout/activity_mmse_test.xml",
+        "source": "com.cognitiveassistant.app-main-31:/layout/activity_mmse_test.xml"
+    },
+    {
+        "merged": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-mergeDebugResources-28:/layout/activity_test_selection.xml",
+        "source": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-main-31:/layout/activity_test_selection.xml"
+    },
+    {
+        "merged": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-mergeDebugResources-28:/layout/activity_patient_profile.xml",
+        "source": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-main-31:/layout/activity_patient_profile.xml"
+    },
+    {
+        "merged": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-mergeDebugResources-28:/layout/activity_mmse_test.xml",
+        "source": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-main-31:/layout/activity_mmse_test.xml"
+    },
+    {
+        "merged": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-mergeDebugResources-28:/layout/activity_test_results.xml",
+        "source": "/home/subha/.gradle/daemon/8.9/com.cognitiveassistant.app-main-31:/layout/activity_test_results.xml"
+    }
+]

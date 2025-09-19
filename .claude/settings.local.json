@@ -16,7 +16,11 @@
       "Bash(git commit:*)",
       "Bash(git branch:*)",
       "Bash(git remote add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(update-alternatives:*)",
+      "Bash(java:*)",
+      "Read(//usr/lib/jvm/**)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

@@ -82,6 +82,8 @@ class MMSETestActivity : AppCompatActivity() {
     private lateinit var submitButton: Button
     private lateinit var listenButton: Button
     private lateinit var statusText: TextView
+    private lateinit var fallbackInput: android.widget.EditText
+    private lateinit var submitTypedButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,6 +99,8 @@ class MMSETestActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submitButton)
         listenButton = findViewById(R.id.listenButton)
         statusText = findViewById(R.id.statusText)
+        fallbackInput = findViewById(R.id.fallbackInput)
+        submitTypedButton = findViewById(R.id.submitTypedButton)
 
         // Initialize speech handler
         speechHandler = SpeechHandler(
@@ -128,6 +132,16 @@ class MMSETestActivity : AppCompatActivity() {
 
         submitButton.setOnClickListener {
             submitTest()
+        }
+
+        submitTypedButton.setOnClickListener {
+            val typedAnswer = fallbackInput.text.toString().trim()
+            if (typedAnswer.isNotEmpty()) {
+                handleSpeechResult(typedAnswer)
+                fallbackInput.text.clear()
+            } else {
+                Toast.makeText(this, "Please enter your answer", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -181,6 +195,10 @@ class MMSETestActivity : AppCompatActivity() {
         listenButton.visibility = Button.VISIBLE
         statusText.visibility = TextView.VISIBLE
         statusText.text = "Tap 'Listen for Answer' to speak your response"
+
+        // Hide fallback input initially
+        fallbackInput.visibility = android.widget.EditText.GONE
+        submitTypedButton.visibility = Button.GONE
 
         // Initially disable next button until answer is given
         nextButton.isEnabled = false
@@ -251,14 +269,19 @@ class MMSETestActivity : AppCompatActivity() {
         listenButton.isEnabled = true
         listenButton.text = "🎤 Listen for Answer"
 
-        // Show user-friendly error message
+        // Show user-friendly error message and fallback option
         statusText.text = when {
-            error.contains("permission", ignoreCase = true) -> "❌ Microphone permission needed\nPlease grant permission and try again"
-            error.contains("network", ignoreCase = true) -> "❌ Network error\nCheck internet connection and try again"
-            error.contains("No speech", ignoreCase = true) -> "❌ No speech detected\nSpeak clearly and try again"
-            error.contains("Could not understand", ignoreCase = true) -> "❌ Speech unclear\nSpeak slowly and clearly, then try again"
-            else -> "❌ Speech error: $error\nTap 'Listen for Answer' to try again"
+            error.contains("permission", ignoreCase = true) -> "❌ Microphone permission needed\nPlease grant permission and try again\n\n💡 Alternative: Use text input below"
+            error.contains("network", ignoreCase = true) -> "❌ Network error\nCheck internet connection and try again\n\n💡 Alternative: Use text input below"
+            error.contains("No speech", ignoreCase = true) -> "❌ No speech detected\nSpeak clearly and try again\n\n💡 Alternative: Use text input below"
+            error.contains("Could not understand", ignoreCase = true) -> "❌ Speech unclear\nSpeak slowly and clearly, then try again\n\n💡 Alternative: Use text input below"
+            else -> "❌ Speech error: $error\nTry speaking again or use text input below"
         }
+
+        // Show fallback text input option after speech error
+        fallbackInput.visibility = android.widget.EditText.VISIBLE
+        submitTypedButton.visibility = Button.VISIBLE
+        fallbackInput.hint = "Type your answer here as backup option"
 
         // Show helpful toast
         when {

@@ -58,7 +58,10 @@ class SpeechHandler(
     }
 
     fun startListening() {
+        Log.d("SpeechHandler", "Starting speech recognition...")
+
         if (!SpeechRecognizer.isRecognitionAvailable(context)) {
+            Log.e("SpeechHandler", "Speech recognition not available")
             onError("Speech recognition not available on this device")
             return
         }
@@ -68,30 +71,49 @@ class SpeechHandler(
 
         // Clean up any existing recognizer
         speechRecognizer?.destroy()
+        speechRecognizer = null
 
-        // Wait a moment for TTS to fully stop
+        // Wait a moment for TTS to fully stop and audio to be available
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
             try {
+                Log.d("SpeechHandler", "Creating new speech recognizer...")
                 speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context)
+
+                if (speechRecognizer == null) {
+                    Log.e("SpeechHandler", "Failed to create SpeechRecognizer")
+                    onError("Could not initialize speech recognition service")
+                    return@postDelayed
+                }
+
                 speechRecognizer?.setRecognitionListener(this)
 
                 val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
                     putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
                     putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
-                    putExtra(RecognizerIntent.EXTRA_PROMPT, "Please speak your answer")
-                    putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3)
-                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 2000)
-                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 2000)
+                    putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, context.packageName)
+                    putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak your answer")
+                    putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5)
                     putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
+
+                    // Try both online and offline recognition
+                    putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, false)
+
+                    // Longer timeout for better capture
+                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 3000)
+                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 3000)
+                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, 1000)
                 }
 
+                Log.d("SpeechHandler", "Starting speech recognition with intent...")
                 isListening = true
                 speechRecognizer?.startListening(intent)
+
             } catch (e: Exception) {
+                Log.e("SpeechHandler", "Exception starting speech recognition", e)
                 onError("Failed to start speech recognition: ${e.message}")
                 isListening = false
             }
-        }, 500) // 500ms delay to ensure TTS has stopped
+        }, 1000) // Increased delay to 1 second for better audio device availability
     }
 
     fun stopListening() {
@@ -108,11 +130,11 @@ class SpeechHandler(
 
     // RecognitionListener implementation
     override fun onReadyForSpeech(params: Bundle?) {
-        Log.d("SpeechHandler", "Ready for speech")
+        Log.d("SpeechHandler", "Ready for speech - microphone is ready")
     }
 
     override fun onBeginningOfSpeech() {
-        Log.d("SpeechHandler", "Beginning of speech")
+        Log.d("SpeechHandler", "Beginning of speech - user started speaking")
     }
 
     override fun onRmsChanged(rmsdB: Float) {

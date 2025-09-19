@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cognitiveassistant"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="24"
+        android:targetSdkVersion="33" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <permission
+        android:name="com.cognitiveassistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.cognitiveassistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:debuggable="true"
+        android:extractNativeLibs="false"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CognitiveAssistant" >
+        <activity
+            android:name="com.cognitiveassistant.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.CognitiveAssistant" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cognitiveassistant.PatientProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CognitiveAssistant" />
+        <activity
+            android:name="com.cognitiveassistant.TestSelectionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CognitiveAssistant" />
+        <activity
+            android:name="com.cognitiveassistant.MMSETestActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CognitiveAssistant" />
+        <activity
+            android:name="com.cognitiveassistant.TestResultsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CognitiveAssistant" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.cognitiveassistant.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+        </provider>
+    </application>
+
+</manifest>

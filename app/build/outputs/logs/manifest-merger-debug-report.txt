@@ -1,0 +1,304 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+MERGED from [androidx.databinding:viewbinding:7.4.2] /home/subha/.gradle/caches/8.9/transforms/e7b7aadf351fea77a08697b024b5270f/transformed/viewbinding-7.4.2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.material:material:1.9.0] /home/subha/.gradle/caches/8.9/transforms/ffed5ba81e0a17fff725ffad8e48f88d/transformed/material-1.9.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/subha/.gradle/caches/8.9/transforms/59b578f3fba793c95ee1ae9c5fb5c3d4/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/subha/.gradle/caches/8.9/transforms/90cbcaecccd000a5c4b4c41cbb574c77/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/subha/.gradle/caches/8.9/transforms/1a21780665bb98633e6cff2d3653e60a/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/subha/.gradle/caches/8.9/transforms/9f24f13507e0c1abb11bd24ae62bd9a2/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.3.6] /home/subha/.gradle/caches/8.9/transforms/b8e079c65ca2be1e4750b3dcdebcbf46/transformed/fragment-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.6.0] /home/subha/.gradle/caches/8.9/transforms/d54a2da3be0d32389a7c1a53dc0940d8/transformed/activity-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/subha/.gradle/caches/8.9/transforms/72d0f02c5c69f2bacb3f75b140a6b096/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/subha/.gradle/caches/8.9/transforms/a4e1f7b4441c4e8fbd0736204070acf5/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/subha/.gradle/caches/8.9/transforms/5a77a03344b32b514e26eb661a21a45a/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/subha/.gradle/caches/8.9/transforms/638f0171a010131ee22cbab03770bc7e/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/subha/.gradle/caches/8.9/transforms/3e074402656d1e29034a393e3c662f27/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/subha/.gradle/caches/8.9/transforms/feaa9ee360be96a87ec84eb205955b80/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/subha/.gradle/caches/8.9/transforms/d813bd869c1eca74cb8274911624b44a/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/subha/.gradle/caches/8.9/transforms/b0646dae8a01548b12d3a60a8bbd7e8d/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] /home/subha/.gradle/caches/8.9/transforms/19481bd8b908ad20a097d9fd13eff1b3/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/subha/.gradle/caches/8.9/transforms/e1e66164666ccbbacfc45f43a35fe574/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/subha/.gradle/caches/8.9/transforms/49df2be55510fbc1a87d69a0a8b4e5c2/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/subha/.gradle/caches/8.9/transforms/e55f37ab91e8ff7ba81d2a38295a83e2/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/subha/.gradle/caches/8.9/transforms/7c74ed67f9c7db44809a2dbdcdfeb896/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] /home/subha/.gradle/caches/8.9/transforms/0cc64b43b85f1d3362eeeaf2f334f90c/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.core:core-ktx:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65e0e2aa83ae35c959691c542c385541/transformed/core-ktx-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/subha/.gradle/caches/8.9/transforms/53ba5b2ca9a9ecc4f241c1000be33e0e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/subha/.gradle/caches/8.9/transforms/a69a32077b97a28d1815bf9456a8f789/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/subha/.gradle/caches/8.9/transforms/f436d931002f011ede3443386805b621/transformed/savedstate-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/subha/.gradle/caches/8.9/transforms/45b0bfaaabd22fa71c9d6ad1ecd5c005/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/subha/.gradle/caches/8.9/transforms/49970e52a047fbdc39f1867fc6331074/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/subha/.gradle/caches/8.9/transforms/8f2ac1b0e73ee2fd813e5a52d6eb0ba3/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/subha/.gradle/caches/8.9/transforms/ecd32d75d5d33a63a2848eaf98681aad/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /home/subha/.gradle/caches/8.9/transforms/758137f32e38d1a027a43d65a9610b92/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/subha/.gradle/caches/8.9/transforms/6608d4b31faa5fc89f7f6b944f23cf5a/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/subha/.gradle/caches/8.9/transforms/541b16ac79b3cd97f3777af7d692040f/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/subha/.gradle/caches/8.9/transforms/b10f57ad540feedd9b04cb9490b57c56/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/subha/.gradle/caches/8.9/transforms/03e59e8fe9da8e9ea865fefc5223535c/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/subha/.gradle/caches/8.9/transforms/35c18ea047b8770ecc29b8a762200dc4/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/subha/.gradle/caches/8.9/transforms/491afaf789ebe705102495c291b70611/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/subha/.gradle/caches/8.9/transforms/a3e86977f0f97501348cff1fd34e9ece/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+	package
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:1-47:12
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:5:5-71
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:5:22-68
+uses-permission#android.permission.INTERNET
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:6:22-64
+application
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:8:5-45:19
+MERGED from [com.google.android.material:material:1.9.0] /home/subha/.gradle/caches/8.9/transforms/ffed5ba81e0a17fff725ffad8e48f88d/transformed/material-1.9.0/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.material:material:1.9.0] /home/subha/.gradle/caches/8.9/transforms/ffed5ba81e0a17fff725ffad8e48f88d/transformed/material-1.9.0/AndroidManifest.xml:24:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/subha/.gradle/caches/8.9/transforms/59b578f3fba793c95ee1ae9c5fb5c3d4/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/subha/.gradle/caches/8.9/transforms/59b578f3fba793c95ee1ae9c5fb5c3d4/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/subha/.gradle/caches/8.9/transforms/8f2ac1b0e73ee2fd813e5a52d6eb0ba3/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/subha/.gradle/caches/8.9/transforms/8f2ac1b0e73ee2fd813e5a52d6eb0ba3/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/subha/.gradle/caches/8.9/transforms/ecd32d75d5d33a63a2848eaf98681aad/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/subha/.gradle/caches/8.9/transforms/ecd32d75d5d33a63a2848eaf98681aad/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:15:9-35
+	android:label
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:13:9-41
+	android:fullBackupContent
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:11:9-54
+	android:roundIcon
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:14:9-54
+	tools:targetApi
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:17:9-29
+	android:icon
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:12:9-43
+	android:allowBackup
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:16:9-56
+	android:dataExtractionRules
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:10:9-65
+activity#com.cognitiveassistant.MainActivity
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:18:9-28:20
+	android:label
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:21:13-45
+	android:exported
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:20:13-36
+	android:theme
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:22:13-60
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:19:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:23:13-27:29
+action#android.intent.action.MAIN
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:26:27-74
+activity#com.cognitiveassistant.PatientProfileActivity
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:29:9-32:63
+	android:exported
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:31:13-37
+	android:theme
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:32:13-60
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:30:13-51
+activity#com.cognitiveassistant.TestSelectionActivity
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:33:9-36:63
+	android:exported
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:35:13-37
+	android:theme
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:36:13-60
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:34:13-50
+activity#com.cognitiveassistant.MMSETestActivity
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:37:9-40:63
+	android:exported
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:39:13-37
+	android:theme
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:40:13-60
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:38:13-45
+activity#com.cognitiveassistant.TestResultsActivity
+ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:41:9-44:63
+	android:exported
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:43:13-37
+	android:theme
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:44:13-60
+	android:name
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml:42:13-48
+uses-sdk
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:7.4.2] /home/subha/.gradle/caches/8.9/transforms/e7b7aadf351fea77a08697b024b5270f/transformed/viewbinding-7.4.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:7.4.2] /home/subha/.gradle/caches/8.9/transforms/e7b7aadf351fea77a08697b024b5270f/transformed/viewbinding-7.4.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.9.0] /home/subha/.gradle/caches/8.9/transforms/ffed5ba81e0a17fff725ffad8e48f88d/transformed/material-1.9.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.9.0] /home/subha/.gradle/caches/8.9/transforms/ffed5ba81e0a17fff725ffad8e48f88d/transformed/material-1.9.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/subha/.gradle/caches/8.9/transforms/59b578f3fba793c95ee1ae9c5fb5c3d4/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/subha/.gradle/caches/8.9/transforms/59b578f3fba793c95ee1ae9c5fb5c3d4/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/subha/.gradle/caches/8.9/transforms/90cbcaecccd000a5c4b4c41cbb574c77/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/subha/.gradle/caches/8.9/transforms/90cbcaecccd000a5c4b4c41cbb574c77/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/subha/.gradle/caches/8.9/transforms/1a21780665bb98633e6cff2d3653e60a/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/subha/.gradle/caches/8.9/transforms/1a21780665bb98633e6cff2d3653e60a/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/subha/.gradle/caches/8.9/transforms/9f24f13507e0c1abb11bd24ae62bd9a2/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/subha/.gradle/caches/8.9/transforms/9f24f13507e0c1abb11bd24ae62bd9a2/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /home/subha/.gradle/caches/8.9/transforms/b8e079c65ca2be1e4750b3dcdebcbf46/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /home/subha/.gradle/caches/8.9/transforms/b8e079c65ca2be1e4750b3dcdebcbf46/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.6.0] /home/subha/.gradle/caches/8.9/transforms/d54a2da3be0d32389a7c1a53dc0940d8/transformed/activity-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.6.0] /home/subha/.gradle/caches/8.9/transforms/d54a2da3be0d32389a7c1a53dc0940d8/transformed/activity-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/subha/.gradle/caches/8.9/transforms/72d0f02c5c69f2bacb3f75b140a6b096/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/subha/.gradle/caches/8.9/transforms/72d0f02c5c69f2bacb3f75b140a6b096/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/subha/.gradle/caches/8.9/transforms/a4e1f7b4441c4e8fbd0736204070acf5/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/subha/.gradle/caches/8.9/transforms/a4e1f7b4441c4e8fbd0736204070acf5/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/subha/.gradle/caches/8.9/transforms/5a77a03344b32b514e26eb661a21a45a/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/subha/.gradle/caches/8.9/transforms/5a77a03344b32b514e26eb661a21a45a/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/subha/.gradle/caches/8.9/transforms/638f0171a010131ee22cbab03770bc7e/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/subha/.gradle/caches/8.9/transforms/638f0171a010131ee22cbab03770bc7e/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/subha/.gradle/caches/8.9/transforms/3e074402656d1e29034a393e3c662f27/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/subha/.gradle/caches/8.9/transforms/3e074402656d1e29034a393e3c662f27/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/subha/.gradle/caches/8.9/transforms/feaa9ee360be96a87ec84eb205955b80/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/subha/.gradle/caches/8.9/transforms/feaa9ee360be96a87ec84eb205955b80/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/subha/.gradle/caches/8.9/transforms/d813bd869c1eca74cb8274911624b44a/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/subha/.gradle/caches/8.9/transforms/d813bd869c1eca74cb8274911624b44a/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/subha/.gradle/caches/8.9/transforms/b0646dae8a01548b12d3a60a8bbd7e8d/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/subha/.gradle/caches/8.9/transforms/b0646dae8a01548b12d3a60a8bbd7e8d/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /home/subha/.gradle/caches/8.9/transforms/19481bd8b908ad20a097d9fd13eff1b3/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /home/subha/.gradle/caches/8.9/transforms/19481bd8b908ad20a097d9fd13eff1b3/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/subha/.gradle/caches/8.9/transforms/e1e66164666ccbbacfc45f43a35fe574/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/subha/.gradle/caches/8.9/transforms/e1e66164666ccbbacfc45f43a35fe574/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/subha/.gradle/caches/8.9/transforms/49df2be55510fbc1a87d69a0a8b4e5c2/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/subha/.gradle/caches/8.9/transforms/49df2be55510fbc1a87d69a0a8b4e5c2/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/subha/.gradle/caches/8.9/transforms/e55f37ab91e8ff7ba81d2a38295a83e2/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/subha/.gradle/caches/8.9/transforms/e55f37ab91e8ff7ba81d2a38295a83e2/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/subha/.gradle/caches/8.9/transforms/7c74ed67f9c7db44809a2dbdcdfeb896/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/subha/.gradle/caches/8.9/transforms/7c74ed67f9c7db44809a2dbdcdfeb896/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/subha/.gradle/caches/8.9/transforms/0cc64b43b85f1d3362eeeaf2f334f90c/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/subha/.gradle/caches/8.9/transforms/0cc64b43b85f1d3362eeeaf2f334f90c/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65e0e2aa83ae35c959691c542c385541/transformed/core-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65e0e2aa83ae35c959691c542c385541/transformed/core-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/subha/.gradle/caches/8.9/transforms/53ba5b2ca9a9ecc4f241c1000be33e0e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/subha/.gradle/caches/8.9/transforms/53ba5b2ca9a9ecc4f241c1000be33e0e/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/subha/.gradle/caches/8.9/transforms/a69a32077b97a28d1815bf9456a8f789/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/subha/.gradle/caches/8.9/transforms/a69a32077b97a28d1815bf9456a8f789/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/subha/.gradle/caches/8.9/transforms/f436d931002f011ede3443386805b621/transformed/savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/subha/.gradle/caches/8.9/transforms/f436d931002f011ede3443386805b621/transformed/savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /home/subha/.gradle/caches/8.9/transforms/45b0bfaaabd22fa71c9d6ad1ecd5c005/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/subha/.gradle/caches/8.9/transforms/45b0bfaaabd22fa71c9d6ad1ecd5c005/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/subha/.gradle/caches/8.9/transforms/49970e52a047fbdc39f1867fc6331074/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/subha/.gradle/caches/8.9/transforms/49970e52a047fbdc39f1867fc6331074/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/subha/.gradle/caches/8.9/transforms/8f2ac1b0e73ee2fd813e5a52d6eb0ba3/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/subha/.gradle/caches/8.9/transforms/8f2ac1b0e73ee2fd813e5a52d6eb0ba3/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/subha/.gradle/caches/8.9/transforms/ecd32d75d5d33a63a2848eaf98681aad/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/subha/.gradle/caches/8.9/transforms/ecd32d75d5d33a63a2848eaf98681aad/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/subha/.gradle/caches/8.9/transforms/758137f32e38d1a027a43d65a9610b92/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/subha/.gradle/caches/8.9/transforms/758137f32e38d1a027a43d65a9610b92/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/subha/.gradle/caches/8.9/transforms/6608d4b31faa5fc89f7f6b944f23cf5a/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/subha/.gradle/caches/8.9/transforms/6608d4b31faa5fc89f7f6b944f23cf5a/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/subha/.gradle/caches/8.9/transforms/541b16ac79b3cd97f3777af7d692040f/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/subha/.gradle/caches/8.9/transforms/541b16ac79b3cd97f3777af7d692040f/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/subha/.gradle/caches/8.9/transforms/b10f57ad540feedd9b04cb9490b57c56/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/subha/.gradle/caches/8.9/transforms/b10f57ad540feedd9b04cb9490b57c56/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/subha/.gradle/caches/8.9/transforms/03e59e8fe9da8e9ea865fefc5223535c/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/subha/.gradle/caches/8.9/transforms/03e59e8fe9da8e9ea865fefc5223535c/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/subha/.gradle/caches/8.9/transforms/35c18ea047b8770ecc29b8a762200dc4/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/subha/.gradle/caches/8.9/transforms/35c18ea047b8770ecc29b8a762200dc4/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/subha/.gradle/caches/8.9/transforms/491afaf789ebe705102495c291b70611/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/subha/.gradle/caches/8.9/transforms/491afaf789ebe705102495c291b70611/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/subha/.gradle/caches/8.9/transforms/a3e86977f0f97501348cff1fd34e9ece/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/subha/.gradle/caches/8.9/transforms/a3e86977f0f97501348cff1fd34e9ece/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+		ADDED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+		INJECTED from /home/subha/cognitive-assistant/app/src/main/AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/subha/.gradle/caches/8.9/transforms/ecd32d75d5d33a63a2848eaf98681aad/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/subha/.gradle/caches/8.9/transforms/ecd32d75d5d33a63a2848eaf98681aad/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/subha/.gradle/caches/8.9/transforms/8f3aca6110142fb5d32894d0393b88ed/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+permission#com.cognitiveassistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+uses-permission#com.cognitiveassistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.10.1] /home/subha/.gradle/caches/8.9/transforms/65a7c59f29425f842f1b1c2deb42d2de/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/subha/.gradle/caches/8.9/transforms/1a442fa363588895091fed2e938b5551/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
