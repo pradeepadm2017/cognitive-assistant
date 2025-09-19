@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.cognitiveassistant"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.cognitiveassistant"
