@@ -59,24 +59,39 @@ class SpeechHandler(
 
     fun startListening() {
         if (!SpeechRecognizer.isRecognitionAvailable(context)) {
-            onError("Speech recognition not available")
+            onError("Speech recognition not available on this device")
             return
         }
 
-        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context)
-        speechRecognizer?.setRecognitionListener(this)
+        // Stop TTS if it's still speaking
+        textToSpeech?.stop()
 
-        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
-            putExtra(RecognizerIntent.EXTRA_PROMPT, "Please speak your answer")
-            putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
-            putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 3000)
-            putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 3000)
-        }
+        // Clean up any existing recognizer
+        speechRecognizer?.destroy()
 
-        isListening = true
-        speechRecognizer?.startListening(intent)
+        // Wait a moment for TTS to fully stop
+        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            try {
+                speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context)
+                speechRecognizer?.setRecognitionListener(this)
+
+                val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+                    putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+                    putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+                    putExtra(RecognizerIntent.EXTRA_PROMPT, "Please speak your answer")
+                    putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3)
+                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 2000)
+                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 2000)
+                    putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
+                }
+
+                isListening = true
+                speechRecognizer?.startListening(intent)
+            } catch (e: Exception) {
+                onError("Failed to start speech recognition: ${e.message}")
+                isListening = false
+            }
+        }, 500) // 500ms delay to ensure TTS has stopped
     }
 
     fun stopListening() {
@@ -116,17 +131,18 @@ class SpeechHandler(
     override fun onError(error: Int) {
         isListening = false
         val errorMessage = when (error) {
-            SpeechRecognizer.ERROR_AUDIO -> "Audio recording error"
-            SpeechRecognizer.ERROR_CLIENT -> "Client side error"
-            SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Insufficient permissions"
-            SpeechRecognizer.ERROR_NETWORK -> "Network error"
-            SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "Network timeout"
-            SpeechRecognizer.ERROR_NO_MATCH -> "No speech match found"
-            SpeechRecognizer.ERROR_RECOGNIZER_BUSY -> "Recognition service busy"
-            SpeechRecognizer.ERROR_SERVER -> "Server error"
-            SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "No speech input"
-            else -> "Speech recognition error"
+            SpeechRecognizer.ERROR_AUDIO -> "Audio recording error - check microphone"
+            SpeechRecognizer.ERROR_CLIENT -> "Speech recognition client error"
+            SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Microphone permission denied"
+            SpeechRecognizer.ERROR_NETWORK -> "Network error - check internet connection"
+            SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "Network timeout - try again"
+            SpeechRecognizer.ERROR_NO_MATCH -> "Could not understand speech - try speaking clearly"
+            SpeechRecognizer.ERROR_RECOGNIZER_BUSY -> "Speech service busy - try again in a moment"
+            SpeechRecognizer.ERROR_SERVER -> "Speech recognition server error"
+            SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "No speech detected - try again"
+            else -> "Speech recognition error (code: $error)"
         }
+        Log.e("SpeechHandler", "Speech recognition error: $errorMessage (code: $error)")
         onError(errorMessage)
     }
 

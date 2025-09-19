@@ -205,8 +205,15 @@ class MMSETestActivity : AppCompatActivity() {
     private fun startListeningForAnswer() {
         if (isWaitingForSpeech) return
 
+        // Double-check audio permission before starting
+        if (!checkAudioPermission()) {
+            Toast.makeText(this, "Microphone permission is required for speech recognition", Toast.LENGTH_LONG).show()
+            requestAudioPermission()
+            return
+        }
+
         isWaitingForSpeech = true
-        statusText.text = "🎤 Listening... Please speak your answer"
+        statusText.text = "🎤 Listening... Please speak your answer clearly"
         listenButton.isEnabled = false
         listenButton.text = "Listening..."
 
@@ -242,9 +249,29 @@ class MMSETestActivity : AppCompatActivity() {
     private fun handleSpeechError(error: String) {
         isWaitingForSpeech = false
         listenButton.isEnabled = true
-        listenButton.text = "Listen for Answer"
-        statusText.text = "Speech error: $error\nTap to try again"
-        Toast.makeText(this, "Speech recognition error. Please try again.", Toast.LENGTH_SHORT).show()
+        listenButton.text = "🎤 Listen for Answer"
+
+        // Show user-friendly error message
+        statusText.text = when {
+            error.contains("permission", ignoreCase = true) -> "❌ Microphone permission needed\nPlease grant permission and try again"
+            error.contains("network", ignoreCase = true) -> "❌ Network error\nCheck internet connection and try again"
+            error.contains("No speech", ignoreCase = true) -> "❌ No speech detected\nSpeak clearly and try again"
+            error.contains("Could not understand", ignoreCase = true) -> "❌ Speech unclear\nSpeak slowly and clearly, then try again"
+            else -> "❌ Speech error: $error\nTap 'Listen for Answer' to try again"
+        }
+
+        // Show helpful toast
+        when {
+            error.contains("permission", ignoreCase = true) -> {
+                Toast.makeText(this, "Please grant microphone permission in app settings", Toast.LENGTH_LONG).show()
+            }
+            error.contains("network", ignoreCase = true) -> {
+                Toast.makeText(this, "Speech recognition requires internet connection", Toast.LENGTH_LONG).show()
+            }
+            else -> {
+                Toast.makeText(this, "Speech recognition failed. Try speaking clearly.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun proceedToNextQuestion() {
