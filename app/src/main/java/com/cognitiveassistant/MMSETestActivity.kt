@@ -83,6 +83,7 @@ class MMSETestActivity : AppCompatActivity() {
     private lateinit var submitButton: Button
     private lateinit var listenButton: Button
     private lateinit var statusText: TextView
+    private lateinit var debugText: TextView
     private lateinit var fallbackInput: android.widget.EditText
     private lateinit var submitTypedButton: Button
 
@@ -100,6 +101,7 @@ class MMSETestActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submitButton)
         listenButton = findViewById(R.id.listenButton)
         statusText = findViewById(R.id.statusText)
+        debugText = findViewById(R.id.debugText)
         fallbackInput = findViewById(R.id.fallbackInput)
         submitTypedButton = findViewById(R.id.submitTypedButton)
 
@@ -113,6 +115,9 @@ class MMSETestActivity : AppCompatActivity() {
                 handleSpeechError(error)
             }
         )
+
+        // Show debug info
+        showDebugInfo()
 
         // Check for audio permission
         if (checkAudioPermission()) {
@@ -239,6 +244,9 @@ class MMSETestActivity : AppCompatActivity() {
         listenButton.isEnabled = false
         listenButton.text = "Listening..."
 
+        // Update debug info
+        updateDebugInfo("Starting speech recognition...")
+
         speechHandler.startListening()
     }
 
@@ -272,6 +280,9 @@ class MMSETestActivity : AppCompatActivity() {
         isWaitingForSpeech = false
         listenButton.isEnabled = true
         listenButton.text = "🎤 Listen for Answer"
+
+        // Update debug info with error details
+        updateDebugInfo("Speech Error: $error")
 
         // Show user-friendly error message and fallback option
         statusText.text = when {
@@ -368,6 +379,40 @@ class MMSETestActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
         finish()
+    }
+
+    private fun showDebugInfo() {
+        val debugInfo = StringBuilder()
+
+        // Check speech recognition availability
+        val speechAvailable = android.speech.SpeechRecognizer.isRecognitionAvailable(this)
+        debugInfo.append("🔍 DEBUG INFO:\n")
+        debugInfo.append("Speech Available: $speechAvailable\n")
+
+        // Check audio permission
+        val audioPermission = checkAudioPermission()
+        debugInfo.append("Audio Permission: $audioPermission\n")
+
+        // Check for Google app
+        try {
+            val pm = packageManager
+            val googleAppInfo = pm.getApplicationInfo("com.google.android.googlequicksearchbox", 0)
+            debugInfo.append("Google App: Found (${googleAppInfo.enabled})\n")
+        } catch (e: Exception) {
+            debugInfo.append("Google App: Not found\n")
+        }
+
+        // Device info
+        debugInfo.append("Device: ${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}\n")
+        debugInfo.append("Android: ${android.os.Build.VERSION.RELEASE}\n")
+
+        debugText.text = debugInfo.toString()
+        debugText.visibility = TextView.VISIBLE
+    }
+
+    private fun updateDebugInfo(message: String) {
+        val currentText = debugText.text.toString()
+        debugText.text = "$currentText\n⚠️ $message"
     }
 
     private fun calculateScore(): Int {

@@ -72,6 +72,19 @@
                 android:layout_marginBottom="16dp"
                 android:visibility="gone" />
 
+            <TextView
+                android:id="@+id/debugText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Debug info will appear here"
+                android:textSize="12sp"
+                android:background="#FFF8DC"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                android:fontFamily="monospace"
+                android:textColor="#8B4513" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

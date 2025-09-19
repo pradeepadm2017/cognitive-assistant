@@ -26,6 +26,9 @@ public final class ActivityMmseTestBinding implements ViewBinding {
   public final RadioGroup answerGroup;
 
   @NonNull
+  public final TextView debugText;
+
+  @NonNull
   public final EditText fallbackInput;
 
   @NonNull
@@ -50,11 +53,13 @@ public final class ActivityMmseTestBinding implements ViewBinding {
   public final Button submitTypedButton;
 
   private ActivityMmseTestBinding(@NonNull LinearLayout rootView, @NonNull RadioGroup answerGroup,
-      @NonNull EditText fallbackInput, @NonNull Button listenButton, @NonNull Button nextButton,
-      @NonNull TextView questionText, @NonNull TextView questionTitle, @NonNull TextView statusText,
-      @NonNull Button submitButton, @NonNull Button submitTypedButton) {
+      @NonNull TextView debugText, @NonNull EditText fallbackInput, @NonNull Button listenButton,
+      @NonNull Button nextButton, @NonNull TextView questionText, @NonNull TextView questionTitle,
+      @NonNull TextView statusText, @NonNull Button submitButton,
+      @NonNull Button submitTypedButton) {
     this.rootView = rootView;
     this.answerGroup = answerGroup;
+    this.debugText = debugText;
     this.fallbackInput = fallbackInput;
     this.listenButton = listenButton;
     this.nextButton = nextButton;
@@ -95,6 +100,12 @@ public final class ActivityMmseTestBinding implements ViewBinding {
       id = R.id.answerGroup;
       RadioGroup answerGroup = ViewBindings.findChildViewById(rootView, id);
       if (answerGroup == null) {
+        break missingId;
+      }
+
+      id = R.id.debugText;
+      TextView debugText = ViewBindings.findChildViewById(rootView, id);
+      if (debugText == null) {
         break missingId;
       }
 
@@ -146,9 +157,9 @@ public final class ActivityMmseTestBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMmseTestBinding((LinearLayout) rootView, answerGroup, fallbackInput,
-          listenButton, nextButton, questionText, questionTitle, statusText, submitButton,
-          submitTypedButton);
+      return new ActivityMmseTestBinding((LinearLayout) rootView, answerGroup, debugText,
+          fallbackInput, listenButton, nextButton, questionText, questionTitle, statusText,
+          submitButton, submitTypedButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

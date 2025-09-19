@@ -11,6 +11,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 id age
 id answerGroup
+id debugText
 id doctorRadio
 id fallbackInput
 id listenButton
