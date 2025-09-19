@@ -1,6 +1,8 @@
 package com.cognitiveassistant
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
@@ -9,8 +11,12 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.cognitiveassistant.data.TestResultsManager
 import com.cognitiveassistant.model.MMSEResult
+import com.cognitiveassistant.utils.AnswerVerifier
+import com.cognitiveassistant.utils.SpeechHandler
 import java.util.UUID
 
 class MMSETestActivity : AppCompatActivity() {
@@ -19,6 +25,12 @@ class MMSETestActivity : AppCompatActivity() {
     private lateinit var patientName: String
     private val answers = mutableMapOf<String, Any>()
     private var currentQuestionIndex = 0
+    private lateinit var speechHandler: SpeechHandler
+    private var isWaitingForSpeech = false
+
+    companion object {
+        private const val RECORD_AUDIO_PERMISSION_CODE = 101
+    }
     private val questions = listOf(
         // ORIENTATION TO TIME (5 points)
         MMSEQuestion("orientation_year", "What year is it?", listOf("Correct", "Incorrect"), 0, 1),
@@ -68,6 +80,8 @@ class MMSETestActivity : AppCompatActivity() {
     private lateinit var answerGroup: RadioGroup
     private lateinit var nextButton: Button
     private lateinit var submitButton: Button
+    private lateinit var listenButton: Button
+    private lateinit var statusText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,19 +95,34 @@ class MMSETestActivity : AppCompatActivity() {
         answerGroup = findViewById(R.id.answerGroup)
         nextButton = findViewById(R.id.nextButton)
         submitButton = findViewById(R.id.submitButton)
+        listenButton = findViewById(R.id.listenButton)
+        statusText = findViewById(R.id.statusText)
 
-        displayQuestion()
+        // Initialize speech handler
+        speechHandler = SpeechHandler(
+            context = this,
+            onSpeechResult = { spokenText ->
+                handleSpeechResult(spokenText)
+            },
+            onError = { error ->
+                handleSpeechError(error)
+            }
+        )
+
+        // Check for audio permission
+        if (checkAudioPermission()) {
+            initializeSpeech()
+        } else {
+            requestAudioPermission()
+        }
 
         nextButton.setOnClickListener {
-            if (saveCurrentAnswer()) {
-                currentQuestionIndex++
-                if (currentQuestionIndex < questions.size) {
-                    displayQuestion()
-                } else {
-                    showSubmitButton()
-                }
-            } else {
-                Toast.makeText(this, "Please select an answer before continuing", Toast.LENGTH_SHORT).show()
+            proceedToNextQuestion()
+        }
+
+        listenButton.setOnClickListener {
+            if (!isWaitingForSpeech) {
+                startListeningForAnswer()
             }
         }
 
@@ -102,32 +131,133 @@ class MMSETestActivity : AppCompatActivity() {
         }
     }
 
+    private fun checkAudioPermission(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.RECORD_AUDIO
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestAudioPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.RECORD_AUDIO),
+            RECORD_AUDIO_PERMISSION_CODE
+        )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == RECORD_AUDIO_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                initializeSpeech()
+            } else {
+                Toast.makeText(this, "Audio permission required for speech functionality", Toast.LENGTH_LONG).show()
+                finish()
+            }
+        }
+    }
+
+    private fun initializeSpeech() {
+        speechHandler.initializeTTS {
+            displayQuestion()
+        }
+    }
+
     private fun displayQuestion() {
         val question = questions[currentQuestionIndex]
         questionTitle.text = "Question ${currentQuestionIndex + 1} of ${questions.size}"
-        questionText.text = question.text
 
-        answerGroup.removeAllViews()
-        answerGroup.clearCheck()
-        question.options.forEachIndexed { index, option ->
-            val radioButton = RadioButton(this)
-            radioButton.text = option
-            radioButton.id = index
-            answerGroup.addView(radioButton)
-        }
+        // Get the actual question text for speech
+        val spokenQuestionText = AnswerVerifier.getQuestionText(question.id)
+        questionText.text = spokenQuestionText
 
-        // Add listener to enable/disable next button
-        answerGroup.setOnCheckedChangeListener { _, _ ->
-            nextButton.isEnabled = answerGroup.checkedRadioButtonId != -1
-            nextButton.alpha = if (answerGroup.checkedRadioButtonId != -1) 1.0f else 0.5f
-        }
+        // Hide radio buttons and show speech interface
+        answerGroup.visibility = RadioGroup.GONE
+        listenButton.visibility = Button.VISIBLE
+        statusText.visibility = TextView.VISIBLE
+        statusText.text = "Tap 'Listen for Answer' to speak your response"
 
-        // Initially disable next button until answer is selected
+        // Initially disable next button until answer is given
         nextButton.isEnabled = false
         nextButton.alpha = 0.5f
+        nextButton.text = "Next (Answer Required)"
 
         submitButton.visibility = Button.GONE
         nextButton.visibility = Button.VISIBLE
+
+        // Automatically speak the question
+        speakQuestion(spokenQuestionText)
+    }
+
+    private fun speakQuestion(questionText: String) {
+        statusText.text = "🔊 Speaking question..."
+        speechHandler.speakText(questionText) {
+            // After question is spoken, enable listening
+            statusText.text = "Tap 'Listen for Answer' to speak your response"
+        }
+    }
+
+    private fun startListeningForAnswer() {
+        if (isWaitingForSpeech) return
+
+        isWaitingForSpeech = true
+        statusText.text = "🎤 Listening... Please speak your answer"
+        listenButton.isEnabled = false
+        listenButton.text = "Listening..."
+
+        speechHandler.startListening()
+    }
+
+    private fun handleSpeechResult(spokenText: String) {
+        isWaitingForSpeech = false
+        listenButton.isEnabled = true
+        listenButton.text = "Listen for Answer"
+
+        val currentQuestion = questions[currentQuestionIndex]
+        val isCorrect = AnswerVerifier.verifyAnswer(currentQuestion.id, spokenText)
+
+        statusText.text = "You said: \"$spokenText\"\nResult: ${if (isCorrect) "✓ Correct" else "✗ Incorrect"}"
+
+        // Store the result (0 for correct, 1 for incorrect)
+        answers[currentQuestion.id] = if (isCorrect) 0 else 1
+
+        // Enable next button
+        nextButton.isEnabled = true
+        nextButton.alpha = 1.0f
+        nextButton.text = "Next Question"
+
+        // Auto-advance after 2 seconds
+        nextButton.postDelayed({
+            if (currentQuestionIndex < questions.size) {
+                proceedToNextQuestion()
+            }
+        }, 2000)
+    }
+
+    private fun handleSpeechError(error: String) {
+        isWaitingForSpeech = false
+        listenButton.isEnabled = true
+        listenButton.text = "Listen for Answer"
+        statusText.text = "Speech error: $error\nTap to try again"
+        Toast.makeText(this, "Speech recognition error. Please try again.", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun proceedToNextQuestion() {
+        if (answers.containsKey(questions[currentQuestionIndex].id)) {
+            currentQuestionIndex++
+            if (currentQuestionIndex < questions.size) {
+                displayQuestion()
+            } else {
+                showSubmitButton()
+            }
+        } else {
+            Toast.makeText(this, "Please provide an answer before continuing", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun saveCurrentAnswer(): Boolean {
@@ -141,10 +271,23 @@ class MMSETestActivity : AppCompatActivity() {
 
     private fun showSubmitButton() {
         questionTitle.text = "Test Complete"
-        questionText.text = "You have completed all questions. Click Submit to finish the test."
-        answerGroup.removeAllViews()
+        questionText.text = "You have completed all MMSE questions. Click Submit to finish the test."
+
+        // Hide speech interface
+        answerGroup.visibility = RadioGroup.GONE
+        listenButton.visibility = Button.GONE
+        statusText.visibility = TextView.GONE
+
         nextButton.visibility = Button.GONE
         submitButton.visibility = Button.VISIBLE
+
+        // Speak completion message
+        speechHandler.speakText("Test completed. All questions answered. You may now submit your results.")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        speechHandler.cleanup()
     }
 
     private fun submitTest() {

@@ -17,10 +17,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Note: For each question, the examiner evaluates the patient's response and selects the appropriate option."
+        android:text="🎤 Voice-Activated Test: The app will speak questions and listen to your spoken answers."
         android:textSize="12sp"
         android:layout_marginBottom="16dp"
-        android:background="#E3F2FD"
+        android:background="#E8F5E8"
         android:padding="8dp"
         android:textStyle="italic" />
 
@@ -59,6 +59,29 @@
                 android:orientation="vertical">
                 <!-- Radio buttons will be added dynamically -->
             </RadioGroup>
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status will appear here"
+                android:textSize="14sp"
+                android:background="#F0F8FF"
+                android:padding="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/listenButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="🎤 Listen for Answer"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                android:background="#4CAF50"
+                android:textColor="white"
+                android:visibility="gone" />
 
         </LinearLayout>
 
