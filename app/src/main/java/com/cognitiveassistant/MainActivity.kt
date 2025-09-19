@@ -45,7 +45,9 @@ class MainActivity : AppCompatActivity() {
             if (isValid) {
                 val intent = when (userType) {
                     UserType.PATIENT -> Intent(this, PatientProfileActivity::class.java)
-                    UserType.DOCTOR -> Intent(this, TestSelectionActivity::class.java)
+                    UserType.DOCTOR -> Intent(this, TestSelectionActivity::class.java).apply {
+                        putExtra("is_doctor", true)
+                    }
                 }
                 startActivity(intent)
             } else {

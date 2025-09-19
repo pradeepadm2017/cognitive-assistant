@@ -31,6 +31,14 @@
             android:name=".TestSelectionActivity"
             android:exported="false"
             android:theme="@style/Theme.CognitiveAssistant" />
+        <activity
+            android:name=".MMSETestActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CognitiveAssistant" />
+        <activity
+            android:name=".TestResultsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CognitiveAssistant" />
     </application>
 
 </manifest>
