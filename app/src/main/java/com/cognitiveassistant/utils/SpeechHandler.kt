@@ -74,13 +74,14 @@ class SpeechHandler(
             return
         }
 
-        // Check for Google app (common speech service provider)
-        try {
-            val pm = context.packageManager
-            val googleAppInfo = pm.getApplicationInfo("com.google.android.googlequicksearchbox", 0)
-            Log.d("SpeechHandler", "Google app found: ${googleAppInfo.enabled}")
-        } catch (e: Exception) {
-            Log.w("SpeechHandler", "Google app not found - may affect speech recognition")
+        // Check for available speech recognition engines
+        val availableEngines = getAvailableSpeechEngines()
+        Log.d("SpeechHandler", "Available speech engines: $availableEngines")
+
+        if (availableEngines.isEmpty()) {
+            Log.w("SpeechHandler", "No speech recognition engines found")
+        } else {
+            Log.d("SpeechHandler", "Using speech engine: ${availableEngines.first()}")
         }
 
         // Stop TTS if it's still speaking
@@ -104,22 +105,7 @@ class SpeechHandler(
 
                 speechRecognizer?.setRecognitionListener(this)
 
-                val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
-                    putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-                    putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
-                    putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, context.packageName)
-                    putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak your answer")
-                    putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5)
-                    putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
-
-                    // Try both online and offline recognition
-                    putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, false)
-
-                    // Longer timeout for better capture
-                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 3000)
-                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 3000)
-                    putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, 1000)
-                }
+                val intent = createSpeechRecognitionIntent()
 
                 Log.d("SpeechHandler", "Starting speech recognition with intent...")
                 isListening = true
@@ -178,6 +164,62 @@ class SpeechHandler(
                 onError("Speech recognition service unavailable")
             }
         }, 1500) // Longer delay for alternative approach
+    }
+
+    private fun createSpeechRecognitionIntent(): Intent {
+        return Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            // Use the most basic, device-native approach
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-US")
+            putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, context.packageName)
+            putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak now")
+            putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3)
+
+            // Force offline mode to avoid Google services dependency
+            putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
+
+            // Conservative timeout settings
+            putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 2000)
+            putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 2000)
+            putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, 500)
+
+            // Disable partial results to reduce complexity
+            putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, false)
+
+            // Try to specify we want device-native recognition
+            putExtra("android.speech.extra.EXTRA_ADDITIONAL_LANGUAGES", arrayOf("en-US"))
+        }
+    }
+
+    private fun getAvailableSpeechEngines(): List<String> {
+        val engines = mutableListOf<String>()
+        val pm = context.packageManager
+
+        // Check for common speech recognition services
+        val speechServices = listOf(
+            "com.google.android.googlequicksearchbox" to "Google Voice Search",
+            "com.samsung.android.bixby.agent" to "Samsung Bixby",
+            "com.microsoft.cortana" to "Microsoft Cortana",
+            "com.amazon.dee.app" to "Amazon Alexa",
+            "com.nuance.nmdp.speechkit.demo" to "Nuance Dragon",
+            "android" to "Android System Speech"
+        )
+
+        for ((packageName, engineName) in speechServices) {
+            try {
+                if (packageName == "android") {
+                    // Always include Android system speech as fallback
+                    engines.add(engineName)
+                } else {
+                    pm.getApplicationInfo(packageName, 0)
+                    engines.add(engineName)
+                }
+            } catch (e: Exception) {
+                // Engine not found, continue
+            }
+        }
+
+        return engines
     }
 
     fun cleanup() {

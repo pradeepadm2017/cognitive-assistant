@@ -393,13 +393,11 @@ class MMSETestActivity : AppCompatActivity() {
         val audioPermission = checkAudioPermission()
         debugInfo.append("Audio Permission: $audioPermission\n")
 
-        // Check for Google app
-        try {
-            val pm = packageManager
-            val googleAppInfo = pm.getApplicationInfo("com.google.android.googlequicksearchbox", 0)
-            debugInfo.append("Google App: Found (${googleAppInfo.enabled})\n")
-        } catch (e: Exception) {
-            debugInfo.append("Google App: Not found\n")
+        // Check for available speech engines
+        val availableEngines = getAvailableSpeechEngines()
+        debugInfo.append("Speech Engines: ${availableEngines.size} found\n")
+        availableEngines.take(2).forEach { engine ->
+            debugInfo.append("  - $engine\n")
         }
 
         // Device info
@@ -408,6 +406,36 @@ class MMSETestActivity : AppCompatActivity() {
 
         debugText.text = debugInfo.toString()
         debugText.visibility = TextView.VISIBLE
+    }
+
+    private fun getAvailableSpeechEngines(): List<String> {
+        val engines = mutableListOf<String>()
+        val pm = packageManager
+
+        // Check for common speech recognition services
+        val speechServices = listOf(
+            "com.google.android.googlequicksearchbox" to "Google Voice Search",
+            "com.samsung.android.bixby.agent" to "Samsung Bixby",
+            "com.microsoft.cortana" to "Microsoft Cortana",
+            "com.amazon.dee.app" to "Amazon Alexa",
+            "android" to "Android System Speech"
+        )
+
+        for ((packageName, engineName) in speechServices) {
+            try {
+                if (packageName == "android") {
+                    // Always include Android system speech as fallback
+                    engines.add(engineName)
+                } else {
+                    pm.getApplicationInfo(packageName, 0)
+                    engines.add(engineName)
+                }
+            } catch (e: Exception) {
+                // Engine not found, continue
+            }
+        }
+
+        return engines
     }
 
     private fun updateDebugInfo(message: String) {
