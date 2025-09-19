@@ -103,30 +103,83 @@ class TestResultsActivity : AppCompatActivity() {
     }
 
     private fun getDetailedBreakdown(result: com.cognitiveassistant.model.MMSEResult): String {
-        val orientationScore = calculateCategoryScore(result.answers, "orientation_", 10)
-        val registrationScore = calculateCategoryScore(result.answers, "registration_", 3)
-        val attentionScore = calculateCategoryScore(result.answers, "attention_", 5)
-        val recallScore = calculateCategoryScore(result.answers, "recall_", 3)
-        val languageScore = calculateCategoryScore(result.answers, "language_", 9)
+        val orientationScore = calculateOrientationScore(result.answers)
+        val registrationScore = calculateRegistrationScore(result.answers)
+        val attentionScore = calculateAttentionScore(result.answers)
+        val recallScore = calculateRecallScore(result.answers)
+        val languageScore = calculateLanguageScore(result.answers)
 
         return """
             Score Breakdown:
-            • Orientation: $orientationScore/10
+            • Orientation (Time & Place): $orientationScore/10
             • Registration: $registrationScore/3
             • Attention & Calculation: $attentionScore/5
             • Recall: $recallScore/3
             • Language: $languageScore/9
+
+            Total Score: ${result.totalScore}/30
         """.trimIndent()
     }
 
-    private fun calculateCategoryScore(answers: Map<String, Any>, prefix: String, maxScore: Int): Int {
+    private fun calculateOrientationScore(answers: Map<String, Any>): Int {
         var score = 0
-        answers.entries.filter { it.key.startsWith(prefix) }.forEach { entry ->
-            val answer = entry.value as? Int ?: -1
-            if (answer == 0) { // Assuming 0 is correct for most questions
-                score++
+        // Orientation questions (first 10) - "Correct" is option 0
+        for (i in 0..9) {
+            val key = when (i) {
+                0 -> "orientation_year"
+                1 -> "orientation_season"
+                2 -> "orientation_date"
+                3 -> "orientation_day"
+                4 -> "orientation_month"
+                5 -> "orientation_state"
+                6 -> "orientation_county"
+                7 -> "orientation_town"
+                8 -> "orientation_hospital"
+                9 -> "orientation_floor"
+                else -> ""
             }
+            if (answers[key] == 0) score++
         }
-        return minOf(score, maxScore)
+        return score
+    }
+
+    private fun calculateRegistrationScore(answers: Map<String, Any>): Int {
+        var score = 0
+        // Registration questions - "Repeated correctly" is option 0
+        listOf("registration_1", "registration_2", "registration_3").forEach { key ->
+            if (answers[key] == 0) score++
+        }
+        return score
+    }
+
+    private fun calculateAttentionScore(answers: Map<String, Any>): Int {
+        var score = 0
+        // Attention questions - correct answer is option 0
+        listOf("attention_1", "attention_2", "attention_3", "attention_4", "attention_5").forEach { key ->
+            if (answers[key] == 0) score++
+        }
+        return score
+    }
+
+    private fun calculateRecallScore(answers: Map<String, Any>): Int {
+        var score = 0
+        // Recall questions - correct answer is option 0
+        listOf("recall_1", "recall_2", "recall_3").forEach { key ->
+            if (answers[key] == 0) score++
+        }
+        return score
+    }
+
+    private fun calculateLanguageScore(answers: Map<String, Any>): Int {
+        var score = 0
+        // Language questions - correct answer is option 0
+        listOf(
+            "language_naming_1", "language_naming_2", "language_repetition",
+            "language_comprehension_1", "language_comprehension_2", "language_comprehension_3",
+            "language_reading", "language_writing", "language_copying"
+        ).forEach { key ->
+            if (answers[key] == 0) score++
+        }
+        return score
     }
 }

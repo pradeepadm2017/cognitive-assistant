@@ -12,7 +12,17 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note: For each question, the examiner evaluates the patient's response and selects the appropriate option."
+        android:textSize="12sp"
+        android:layout_marginBottom="16dp"
+        android:background="#E3F2FD"
+        android:padding="8dp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/questionTitle"
